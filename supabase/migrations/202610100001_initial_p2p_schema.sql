@@ -108,7 +108,8 @@ alter table public.p2p_order_messages enable row level security;
 
 revoke all on public.profiles, public.p2p_ads, public.p2p_orders,
   public.p2p_order_events, public.p2p_order_messages from anon, authenticated;
-grant select on public.profiles to anon, authenticated;
+revoke select on public.profiles from anon, authenticated;
+grant select (id, display_name, avatar_url, country_code, created_at) on public.profiles to anon, authenticated;
 grant update (display_name, avatar_url, country_code) on public.profiles to authenticated;
 grant select on public.p2p_ads to anon, authenticated;
 grant select on public.p2p_orders, public.p2p_order_events, public.p2p_order_messages to authenticated;
