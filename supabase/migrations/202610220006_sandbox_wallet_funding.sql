@@ -79,7 +79,7 @@ begin
         using errcode = '22023';
     end if;
 
-    return query select v_account.id, v_entry.balance_after, v_entry.id;
+    return query select v_account.id, v_account.available_balance, v_entry.id;
     return;
   end if;
 
